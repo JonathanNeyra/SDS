@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>SDS Blinder</h1>
+<div class="table-responsive">
+    <table id="sdstable" class="display table" width="100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titles</th>
+                <th>Items</th>
+                <th>Manufactures</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sdsDatum in sdsDatas %}
+            <tr>
+                <td>{{ sdsDatum.idSds }}</td>
+                <td><a href="{{ path('sdsmount_show', { 'idSds': sdsDatum.idSds }) }}">{{ sdsDatum.titleSds }}</a></td>
+                <td>{{ sdsDatum.itemSds }}</td>
+                <td>{{ sdsDatum.manufacSds }}</td>
+                <td>
+                    <div class="col-md-4">
+                        <a href="{{ path('sdsmount_show', { 'idSds': sdsDatum.idSds }) }}" class="btn btn-success btn-sm btn-block">show</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="{{ path('sdsmount_edit', { 'idSds': sdsDatum.idSds }) }}" class="btn btn-warning btn-sm btn-block">edit</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="{{ path('sdsmount_download', { 'idSds': sdsDatum.idSds }) }}" class="btn btn-default btn-sm btn-block">Descargar</a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <script>
+$(document).ready(function(){
+    $('#sdstable').dataTable();
+});
+</script>
+</div>
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-primary">
+            <a href="{{ path('sdsmount_new') }}">Create a new SDS</a>
+        </li>
+    </ul>
+{% endblock %}

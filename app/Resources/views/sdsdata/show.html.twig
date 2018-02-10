@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Sdsdatum</h1>
+<div class="table-responsive">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Title</th>
+                <td>{{ sdsDatum.titleSds }}</td>
+            </tr>
+            <tr>
+                <th>Manufacturer</th>
+                <td>{{ sdsDatum.manufacSds }}</td>
+            </tr>
+            <tr>
+                <th>Directory Source</th>
+                <td>{{ sdsDatum.dirFileSds }}</td>
+            </tr>
+            <tr>
+                <th>Items</th>
+                <td>{{ sdsDatum.itemSds }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-primary">
+            <a href="{{ path('sdsmount_index') }}">Back to the list</a>
+        </li>
+        <li class="list-group-item list-group-item-primary">
+            <a href="{{ path('sdsmount_edit', { 'idSds': sdsDatum.idSds }) }}">Edit</a>
+        </li>
+        <li class="list-group-item list-group-item-primary">
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

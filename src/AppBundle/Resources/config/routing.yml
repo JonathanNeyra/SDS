@@ -1,0 +1,4 @@
+app_sdsmount:
+    resource: "@AppBundle/Resources/config/routing/sdsdata.php"
+    prefix:   /sdsmount
+

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Upload SDS</h1>
+
+    {{ form_start(form) }}
+        <div class="container">
+            <div class="form-group col-xs-12 col-sm-12 col-md-6">
+                {{ form_label(form.titleSds, 'Title') }}
+                {{ form_widget(form.titleSds, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group col-xs-12 col-sm-12 col-md-6">
+                {{ form_label(form.manufacSds , 'Manufacturer') }}
+                {{ form_widget(form.manufacSds, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group col-xs-12 col-sm-12 col-md-6">
+                {{ form_label(form.dirFileSds) }}
+                {{ form_widget(form.dirFileSds, {'attr': {'class': 'form-control', 'type': 'file'}}) }}
+            </div>
+            <div class="form-group col-xs-12 col-sm-12 col-md-6">
+                {{ form_label(form.itemSds, 'Item') }}
+                {{ form_widget(form.itemSds, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Create" />
+    {{ form_end(form) }}
+
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-primary">
+            <a href="{{ path('sdsmount_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Edition</h1>
+
+    {{ form_start(edit_form) }}
+        <div class="container">
+            <div class="form-group col-xs-12 col-sm-12 col-md-6">
+                {{ form_label(edit_form.titleSds) }}
+                {{ form_widget(edit_form.titleSds, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group col-xs-12 col-sm-12 col-md-6">
+                {{ form_label(edit_form.manufacSds) }}
+                {{ form_widget(edit_form.manufacSds, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group col-xs-12 col-sm-12 col-md-6">
+                {{ form_label(edit_form.dirFileSds) }}
+                {{ form_widget(edit_form.dirFileSds, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group col-xs-12 col-sm-12 col-md-6">
+                {{ form_label(edit_form.itemSds) }}
+                {{ form_widget(edit_form.itemSds, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        <input type="submit" class="btn btn-warning" value="Edit" />
+    {{ form_end(edit_form) }}
+
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-primary">
+            <a href="{{ path('sdsmount_index') }}">Back to the list</a>
+        </li>
+        <li class="list-group-item list-group-item-primary">
+            {{ form_start(delete_form) }}
+                <input type="submit" class="btn btn-danger" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
